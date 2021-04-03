@@ -7,3 +7,5 @@ check-updates: #
 		./gradlew dependencyUpdates
 run: #
 		./gradlew run
+lint: #
+		./gradlew checkstyleMain
