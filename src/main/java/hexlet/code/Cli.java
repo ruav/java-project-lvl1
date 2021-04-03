@@ -3,10 +3,12 @@ package hexlet.code;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Cli {
+public final class Cli {
 
     private static String name = null;
     private static Scanner scanner = new Scanner(System.in);
+
+    private Cli() { }
 
     public static void welcomeMethod() {
         System.out.println("Welcome to the Brain Games!");

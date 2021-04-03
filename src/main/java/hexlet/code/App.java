@@ -20,7 +20,7 @@ public class App {
             case 2:
                 Cli.even();
             default:
-                return;
+                break;
         }
     }
 }
