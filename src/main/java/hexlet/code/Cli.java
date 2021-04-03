@@ -10,6 +10,9 @@ public final class Cli {
 
     private Cli() { }
 
+    /**
+     *
+     */
     public static void welcomeMethod() {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
@@ -19,6 +22,9 @@ public final class Cli {
 
     }
 
+    /**
+     *
+     */
     public static void even() {
         welcomeMethod();
         System.out.println("Answer 'yes' if number even otherwise answer 'no'.");

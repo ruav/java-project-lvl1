@@ -2,7 +2,7 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-public class App {
+public final class App {
 
     private App() {
     }
@@ -16,7 +16,7 @@ public class App {
     }
 
     /**
-     * logic for game
+     * logic for game.
      */
     public static void choseLogic() {
         System.out.println("Please enter the game number and press Enter.");
