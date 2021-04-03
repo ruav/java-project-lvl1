@@ -29,7 +29,9 @@ public final class Cli {
             System.out.println("Question: " + number);
             String answer = scanner.nextLine();
             if (!answer.toLowerCase().trim().equals(isEven)) {
-                System.out.println(String.format("'%1$s' is wrong answer ;(. Correct answer was '%2$s'.", answer, isEven));
+                System.out.println(
+                        String.format("'%1$s' is wrong answer ;(. Correct answer was '%2$s'.",
+                                answer, isEven));
                 System.out.println(String.format("Let's try again, %0$s!", name));
                 return;
             } else {
