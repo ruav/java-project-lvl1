@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.CalculatorGame;
 import hexlet.code.games.EvenGame;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public final class App {
@@ -23,10 +24,11 @@ public final class App {
      */
     public static void choseLogic() {
         System.out.println("Please enter the game number and press Enter.");
-        System.out.print("1 - Greet\n2 - Even\n3 - Calculator\n0 - Exit\nYour choice: ");
+        Arrays.stream(Logic.values()).forEach(l -> System.out.println(l.getNum() + " - " + l.getName()));
+        System.out.println("Your choice: ");
+
         Scanner scanner = new Scanner(System.in);
         int select = scanner.nextInt();
-        System.out.println(select);
         switch (select) {
             case 1:
                 Cli.welcomeMethod();
