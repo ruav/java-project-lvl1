@@ -3,3 +3,4 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 ![example workflow](https://github.com/ruav/java-project-lvl1/actions/workflows/superlinter.yml/badge.svg)
 
+[![asciicast](https://asciinema.org/a/RT0rODisBWXEvmTPyqauEkWgx.png)](https://asciinema.org/a/RT0rODisBWXEvmTPyqauEkWgx)
