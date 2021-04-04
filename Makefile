@@ -1,6 +1,6 @@
 # Makefile
 install: # выполняем:  ./gradlew clean install
-# 		gradle wrapper
+		gradle wrapper
 		./gradlew clean install
 run-dist: #
 		./build/install/app/bin/app
