@@ -1,32 +1,56 @@
 package hexlet.code;
-
+import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
+    private static int count = 0;
+    private static String yourAnswer;
+    private static final String NAME_GAMER = Cli.getName();
+    private static Random random = new Random();
 
-    private static Scanner scanner = new Scanner(System.in);
-
-    private static final int SUCCESS_REPEAT = 3;
-
-    public static void start(Game game) {
-
-        String name = Cli.welcomeMethod();
-        game.printDescription();
-        for (int i = 0; i < SUCCESS_REPEAT; i++) {
-            String correctAnswer = game.getCorrectAnswer();
-            System.out.println("Question: " + game.getQuestion());
-            String answer = scanner.nextLine();
-            if (!game.checkResult(answer)) {
-                System.out.println(
-                        String.format("'%1$s' is wrong answer ;(. Correct answer was '%2$s'.",
-                                answer, correctAnswer));
-                System.out.println(String.format("Let's try again, %0$s!", name));
-                return;
-            } else {
-                System.out.println("Correct!");
-            }
-        }
-        System.out.println("Congratulations, " + name + "!");
+    public static int randomInt(int bound) {
+        return random.nextInt(bound);
     }
 
+    public static int randomInt() {
+        final int min = 1;
+        final int max = 150;
+        return min + (int) (Math.random() * (max - min));
+    }
+
+    public static void playCycle(final String expression, final String result) {
+        final int yesANSWERS = 3;
+        if (count == yesANSWERS) {
+            System.out.println("Congratulations, " + NAME_GAMER + "!");
+            System.exit(0);
+        } else {
+            askQuestion(expression);
+            getAnswer();
+            correctOrNot(result, yourAnswer);
+        }
+    }
+
+
+    public static void askQuestion(final String expression) {
+        System.out.println("Question: " + expression);
+    }
+
+    public static void getAnswer() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Your answer: ");
+        yourAnswer = sc.nextLine();
+    }
+
+    public static void correctOrNot(final String result, final String answer) {
+        if (result.equals(answer)) {
+            System.out.println("Correct!");
+            count += 1;
+        } else {
+            System.out.println("'" + answer + "' is wrong answer ;(."
+                + " Correct answer was '" + result + "'."
+                + "\nLet's try again, " + NAME_GAMER + "!");
+            count = 0;
+            System.exit(0);
+        }
+    }
 }
