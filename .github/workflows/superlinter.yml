@@ -20,8 +20,8 @@ jobs:
 #          DEFAULT_BRANCH: main
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #      Use checkstyle
-#      - name: Checkout
-#        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 #      - name: Run check style
 #        uses: nikitasavinov/checkstyle-action@master
 #        with:
