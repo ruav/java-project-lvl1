@@ -22,6 +22,6 @@ jobs:
         with:
           java-version: '11'
       - name: Make Gradle executable
-          run: chmod +x ./gradlew
+        run: chmod +x ./gradlew
       - name: Build with Gradle
         run: make install
