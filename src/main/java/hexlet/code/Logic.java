@@ -13,9 +13,9 @@ public enum Logic {
     private int num;
     private String name;
 
-    Logic(int num, String name) {
-        this.num = num;
-        this.name = name;
+    Logic(int numOfMenu, String nameOfMenu) {
+        this.num = numOfMenu;
+        this.name = nameOfMenu;
     }
 
     public int getNum() {
