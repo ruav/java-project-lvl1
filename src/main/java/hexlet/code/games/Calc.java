@@ -7,8 +7,8 @@ public class Calc {
         System.out.println("What is the result of the expression?");
         int result = 1;
         while (true) {
-            int val1 = Engine.randomInt();
-            int val2 = Engine.randomInt();
+            int val1 = Engine.randomIntWithMin();
+            int val2 = Engine.randomIntWithMin();
             Character operator = getOperation();
             String expression = val1 + " " + operator + " " + val2;
             result = calcResult(val1, val2, operator);

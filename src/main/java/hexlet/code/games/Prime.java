@@ -9,7 +9,7 @@ public class Prime {
                          + " Otherwise answer 'no'.");
         while (true) {
             String result = "yes";
-            int simplyNum = Engine.randomInt();
+            int simplyNum = Engine.randomIntWithMin();
             int driver = 2;
             while (driver < simplyNum) {
                 if (simplyNum % driver == 0) {

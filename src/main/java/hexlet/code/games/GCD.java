@@ -8,10 +8,10 @@ public class GCD {
                       + "divisor of given numbers.");
         int nod;
         while (true) {
-            int firstOperand = Engine.randomInt();
-            int secondOperand = Engine.randomInt();
-            nod = findNod(firstOperand, secondOperand);
-            String expression = " " + firstOperand + " " + secondOperand;
+            int val1 = Engine.randomIntWithMin();
+            int val2 = Engine.randomIntWithMin();
+            nod = findNod(val1, val2);
+            String expression = " " + val1 + " " + val2;
             Engine.playCycle(expression.trim(), String.valueOf(nod));
         }
     }

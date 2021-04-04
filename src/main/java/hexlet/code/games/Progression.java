@@ -8,9 +8,9 @@ public class Progression {
         System.out.println("What number is missing in the progression?");
         while (true) {
             final int round = 10;
-            int num = Engine.randomInt();
-            int increment = Engine.randomInt();
-            int indexLost = (int) (Math.random() * round);
+            int num = Engine.randomIntWithMin();
+            int increment = Engine.randomIntWithMin();
+            int indexLost = Engine.randomInt(round);
             String progression = build(indexLost, num, increment);
             Engine.playCycle(progression.trim(), String.valueOf(lostNum));
         }

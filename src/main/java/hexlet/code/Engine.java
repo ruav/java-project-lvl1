@@ -7,15 +7,18 @@ public class Engine {
     private static String yourAnswer;
     private static final String NAME_GAMER = Cli.getName();
     private static Random random = new Random();
+    public static final int DEFAULT_GEN_NUMBER = 150;
 
     public static int randomInt(int bound) {
         return random.nextInt(bound);
     }
 
-    public static int randomInt() {
-        final int min = 1;
-        final int max = 150;
-        return min + (int) (Math.random() * (max - min));
+    public static int randomIntWithMin(int bound) {
+        return 1 + random.nextInt(bound);
+    }
+
+    public static int randomIntWithMin() {
+        return randomIntWithMin(DEFAULT_GEN_NUMBER);
     }
 
     public static void playCycle(final String expression, final String result) {
@@ -46,9 +49,10 @@ public class Engine {
             System.out.println("Correct!");
             count += 1;
         } else {
-            System.out.println("'" + answer + "' is wrong answer ;(."
-                + " Correct answer was '" + result + "'."
-                + "\nLet's try again, " + NAME_GAMER + "!");
+            System.out.println(
+                    String.format("'%1$s' is wrong answer ;(. Correct answer was '%2$s'.",
+                            answer, result));
+            System.out.println(String.format("Let's try again, %0$s!", NAME_GAMER));
             count = 0;
             System.exit(0);
         }
