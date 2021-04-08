@@ -26,7 +26,7 @@ public class Progression {
         for (int i = 0; i < array.length; i++) {
             itemOfProgress += increment;
             if (i == lost) {
-                array[i] = ".. ";
+                array[i] = "..";
             } else {
                 array[i] = String.valueOf(itemOfProgress);
             }
