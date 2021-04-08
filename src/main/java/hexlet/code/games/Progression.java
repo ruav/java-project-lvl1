@@ -20,7 +20,10 @@ public class Progression {
         }
     }
 
-    public static String[] generateProgressionArray(final int lost, final int startNum, final int increment, int progressionLength) {
+    public static String[] generateProgressionArray(final int lost,
+                                                    final int startNum,
+                                                    final int increment,
+                                                    int progressionLength) {
         String[] array = new String[progressionLength];
         int itemOfProgress = startNum;
         for (int i = 0; i < array.length; i++) {

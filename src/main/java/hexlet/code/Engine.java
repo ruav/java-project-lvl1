@@ -12,14 +12,11 @@ public class Engine {
         if (count == yesANSWERS) {
             printMessage("Congratulations, " + Cli.getName() + "!");
             return true;
-        } else {
-            askQuestion(expression);
-            getAnswer();
-            if (!correctOrNot(result, yourAnswer)) {
-                return true;
-            }
         }
-        return false;
+        askQuestion(expression);
+        getAnswer();
+        return !correctOrNot(result, yourAnswer);
+
     }
 
     public static void askQuestion(final String expression) {
