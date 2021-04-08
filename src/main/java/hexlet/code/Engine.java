@@ -5,13 +5,12 @@ import java.util.Scanner;
 public class Engine {
     private static int count = 0;
     private static String yourAnswer;
-    private static final String NAME_GAMER = Cli.getName();
     private static final Scanner sc = new Scanner(System.in);
 
     public static boolean playCycle(final String expression, final String result) {
         final int yesANSWERS = 3;
         if (count == yesANSWERS) {
-            printMessage("Congratulations, " + NAME_GAMER + "!");
+            printMessage("Congratulations, " + Cli.getName() + "!");
             return true;
         } else {
             askQuestion(expression);
@@ -41,7 +40,7 @@ public class Engine {
         printMessage(
                 String.format("'%1$s' is wrong answer ;(. Correct answer was '%2$s'.",
                         answer, result));
-        printMessage(String.format("Let's try again, %0$s!", NAME_GAMER));
+        printMessage(String.format("Let's try again, %0$s!", Cli.getName()));
         count = 0;
         return false;
     }
