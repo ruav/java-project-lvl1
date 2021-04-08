@@ -14,7 +14,9 @@ public class Progression {
             int indexLost = Utils.randomInt(round);
             String[] array = generateProgressionArray(indexLost, num, increment, round);
             int answer = num + (increment * (indexLost + 1));
-            Engine.playCycle(String.join(" ", array).trim(), String.valueOf(answer));
+            if (Engine.playCycle(String.join(" ", array).trim(), String.valueOf(answer))) {
+                return;
+            }
         }
     }
 

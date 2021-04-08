@@ -11,7 +11,9 @@ public class Prime {
         while (true) {
             int simplyNum = Utils.randomIntWithMin();
             String result = isSimple(simplyNum) ? "yes" : "no";
-            Engine.playCycle(String.valueOf(simplyNum), result);
+            if (Engine.playCycle(String.valueOf(simplyNum), result)) {
+                return;
+            }
         }
     }
 

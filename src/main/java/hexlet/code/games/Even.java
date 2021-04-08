@@ -9,7 +9,9 @@ public class Even {
         Engine.printMessage("Answer 'yes' if number even otherwise answer 'no'");
         while (true) {
             int expression = Utils.randomIntWithMin();
-            Engine.playCycle(String.valueOf(expression), isEven(expression));
+            if (Engine.playCycle(String.valueOf(expression), isEven(expression))) {
+                return;
+            }
         }
     }
 

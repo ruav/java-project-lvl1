@@ -14,7 +14,9 @@ public class GCD {
             int val2 = Utils.randomIntWithMin();
             nod = findNod(val1, val2);
             String expression = " " + val1 + " " + val2;
-            Engine.playCycle(expression.trim(), String.valueOf(nod));
+            if (Engine.playCycle(expression.trim(), String.valueOf(nod))) {
+                return;
+            }
         }
     }
 

@@ -8,18 +8,19 @@ public class Engine {
     private static final String NAME_GAMER = Cli.getName();
     private static final Scanner sc = new Scanner(System.in);
 
-    public static void playCycle(final String expression, final String result) {
+    public static boolean playCycle(final String expression, final String result) {
         final int yesANSWERS = 3;
         if (count == yesANSWERS) {
             printMessage("Congratulations, " + NAME_GAMER + "!");
-            return;
+            return true;
         } else {
             askQuestion(expression);
             getAnswer();
             if (!correctOrNot(result, yourAnswer)) {
-                return;
+                return true;
             }
         }
+        return false;
     }
 
     public static void askQuestion(final String expression) {

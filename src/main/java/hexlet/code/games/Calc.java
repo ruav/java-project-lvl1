@@ -14,7 +14,9 @@ public class Calc {
             Character operator = getOperation();
             String expression = val1 + " " + operator + " " + val2;
             result = calcResult(val1, val2, operator);
-            Engine.playCycle(expression.trim(), String.valueOf(result));
+            if (Engine.playCycle(expression.trim(), String.valueOf(result))) {
+                return;
+            }
         }
     }
 
