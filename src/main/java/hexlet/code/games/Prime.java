@@ -1,23 +1,28 @@
 package hexlet.code.games;
+
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Prime {
 
-
     public static void play() {
-        System.out.println("Answer 'yes' if given number is prime."
-                         + " Otherwise answer 'no'.");
+        Engine.printMessage("Answer 'yes' if given number is prime."
+                + " Otherwise answer 'no'.");
         while (true) {
-            String result = "yes";
-            int simplyNum = Engine.randomIntWithMin();
-            int driver = 2;
-            while (driver < simplyNum) {
-                if (simplyNum % driver == 0) {
-                    result = "no";
-                }
-                driver += 1;
-            }
+            int simplyNum = Utils.randomIntWithMin();
+            String result = isSimple(simplyNum) ? "yes" : "no";
             Engine.playCycle(String.valueOf(simplyNum), result);
         }
+    }
+
+    private static boolean isSimple(int simplyNum) {
+        int driver = 2;
+        while (driver < simplyNum) {
+            if (simplyNum % driver == 0) {
+                return false;
+            }
+            driver += 1;
+        }
+        return true;
     }
 }

@@ -1,14 +1,19 @@
 package hexlet.code.games;
+
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Even {
 
     public static void play() {
-        System.out.println("Answer 'yes' if number even otherwise answer 'no'");
+        Engine.printMessage("Answer 'yes' if number even otherwise answer 'no'");
         while (true) {
-            int expression = Engine.randomIntWithMin();
-            String result = expression % 2 == 0 ? "yes" : "no";
-            Engine.playCycle(String.valueOf(expression), result);
+            int expression = Utils.randomIntWithMin();
+            Engine.playCycle(String.valueOf(expression), isEven(expression));
         }
+    }
+
+    public static String isEven(int expression) {
+        return expression % 2 == 0 ? "yes" : "no";
     }
 }

@@ -1,12 +1,12 @@
 package hexlet.code;
-import hexlet.code.games.Even;
+
 import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
 import java.util.Arrays;
-import java.util.Scanner;
 /**
  * Welcome to the Brain Games!
  *
@@ -18,11 +18,10 @@ public class App {
     }
 
     public static void makeGame() {
-        System.out.println("Please enter the game number and press Enter.");
-        Arrays.stream(Logic.values()).forEach(l -> System.out.println(l.getNum() + " - " + l.getName()));
-        System.out.print("Your choice: ");
-        Scanner sc = new Scanner(System.in);
-        String choice = sc.nextLine();
+        Engine.printMessage("Please enter the game number and press Enter.");
+        Arrays.stream(Logic.values()).forEach(l -> Engine.printMessage(l.getNum() + " - " + l.getName()));
+        Engine.printMessage("Your choice: ");
+        String choice = Engine.readLine();
         Cli.hello();
         switch (choice) {
             case "1":
