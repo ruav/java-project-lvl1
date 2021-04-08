@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Engine {
     private static int count = 0;
     private static String yourAnswer;
-    private static final Scanner sc = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     public static boolean playCycle(final String expression, final String result) {
         final int yesANSWERS = 3;
@@ -25,7 +25,7 @@ public class Engine {
 
     public static void getAnswer() {
         printMessage("Your answer: ");
-        yourAnswer = sc.nextLine();
+        yourAnswer = SCANNER.nextLine();
     }
 
     public static boolean correctOrNot(final String result, final String answer) {
@@ -47,6 +47,6 @@ public class Engine {
     }
 
     public static String readLine() {
-        return sc.nextLine();
+        return SCANNER.nextLine();
     }
 }
