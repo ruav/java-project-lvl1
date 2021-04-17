@@ -5,44 +5,51 @@ import hexlet.code.Utils;
 
 public class Calc {
 
+    private final static String HELLO_MESSAGE = "What is the result of the expression?";
+
     public static void play() {
-        Engine.printMessage("What is the result of the expression?");
-        int result = 1;
-        while (true) {
+        String[] results = new String[Engine.NUMBER_CORRECT_ANSWER_FOR_SUCCESS];
+        String[] expressions = new String[Engine.NUMBER_CORRECT_ANSWER_FOR_SUCCESS];
+        for (int i = 0; i < results.length; i++) {
             int val1 = Utils.randomIntWithMin();
             int val2 = Utils.randomIntWithMin();
-            Character operator = getOperation();
-            String expression = val1 + " " + operator + " " + val2;
-            result = calcResult(val1, val2, operator);
-            if (Engine.playCycle(expression.trim(), String.valueOf(result))) {
-                return;
+            Operation operator = getOperation();
+            expressions[i] = val1 + " " + operator.getOperationSign() + " " + val2;
+            results[i] = String.valueOf(operator.calcResult(val1, val2));
+        }
+        Engine.playCycle(HELLO_MESSAGE, expressions, results);
+
+    }
+
+    private static Operation getOperation() {
+        return Operation.values()[Utils.randomInt(Operation.values().length)];
+    }
+
+    private enum Operation {
+        Plus('+'),
+        Minus('-'),
+        Multiplication('*');
+
+        private final char operationSign;
+
+        Operation(char operationSign) {
+            this.operationSign = operationSign;
+        }
+
+        public char getOperationSign() {
+            return operationSign;
+        }
+
+        public int calcResult(int val1, int val2) {
+            switch (this) {
+                case Plus:
+                    return val1 + val2;
+                case Minus:
+                    return val1 - val2;
+                default:
+                    return val1 * val2;
             }
         }
-    }
 
-    private static Character getOperation() {
-        switch (Utils.randomInt(2)) {
-            case 0:
-                return '+';
-            case 1:
-                return '-';
-            case 2:
-                return '/';
-            default:
-                return '*';
-        }
-    }
-
-    private static int calcResult(int val1, int val2, Character op) {
-        switch (op) {
-            case '/':
-                return val1 / val2;
-            case '-':
-                return val1 - val2;
-            case '*':
-                return val1 * val2;
-            default:
-                return val1 + val2;
-        }
     }
 }

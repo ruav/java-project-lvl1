@@ -3,19 +3,21 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    private static int count = 0;
+    public static final int NUMBER_CORRECT_ANSWER_FOR_SUCCESS = 3;
     private static String yourAnswer;
     private static final Scanner SCANNER = new Scanner(System.in);
 
-    public static boolean playCycle(final String expression, final String result) {
-        final int yesANSWERS = 3;
-        if (count == yesANSWERS) {
-            printMessage("Congratulations, " + Cli.getName() + "!");
-            return true;
+    public static void playCycle(final String helloMessage, final String[] expression, final String[] results) {
+
+        printMessage(helloMessage);
+        for (int i = 0; i < NUMBER_CORRECT_ANSWER_FOR_SUCCESS; i++) {
+            askQuestion(expression[i]);
+            getAnswer();
+            if (correctOrNot(results[i], yourAnswer)) {
+                printMessage("Congratulations, " + Cli.getName() + "!");
+                break;
+            }
         }
-        askQuestion(expression);
-        getAnswer();
-        return !correctOrNot(result, yourAnswer);
 
     }
 
@@ -31,14 +33,12 @@ public class Engine {
     public static boolean correctOrNot(final String result, final String answer) {
         if (result.equals(answer)) {
             printMessage("Correct!");
-            count += 1;
             return true;
         }
         printMessage(
                 String.format("'%1$s' is wrong answer ;(. Correct answer was '%2$s'.",
                         answer, result));
         printMessage(String.format("Let's try again, %0$s!", Cli.getName()));
-        count = 0;
         return false;
     }
 

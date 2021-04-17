@@ -5,25 +5,32 @@ import hexlet.code.Utils;
 
 public class Progression {
 
+    private final static String HELLO_MESSAGE = "What number is missing in the progression?";
+
     public static void play() {
-        Engine.printMessage("What number is missing in the progression?");
-        while (true) {
-            final int round = 10;
+
+        String[] results = new String[Engine.NUMBER_CORRECT_ANSWER_FOR_SUCCESS];
+        String[] expressions = new String[Engine.NUMBER_CORRECT_ANSWER_FOR_SUCCESS];
+
+        for (int i = 0; i < results.length; i++) {
+            final int progressionLength = 10;
             int num = Utils.randomIntWithMin();
             int increment = Utils.randomIntWithMin();
-            int indexLost = Utils.randomInt(round);
-            String[] array = generateProgressionArray(indexLost, num, increment, round);
+            int indexLost = Utils.randomInt(progressionLength);
+            String[] array = generateProgression(indexLost, num, increment, progressionLength);
             int answer = num + (increment * (indexLost + 1));
-            if (Engine.playCycle(String.join(" ", array).trim(), String.valueOf(answer))) {
-                return;
-            }
+            results[i] = String.valueOf(answer);
+            expressions[i] = String.join(" ", array).trim();
         }
+
+        Engine.playCycle(HELLO_MESSAGE, expressions, results);
+
     }
 
-    public static String[] generateProgressionArray(final int lost,
-                                                    final int startNum,
-                                                    final int increment,
-                                                    int progressionLength) {
+    public static String[] generateProgression(final int lost,
+                                               final int startNum,
+                                               final int increment,
+                                               int progressionLength) {
         String[] array = new String[progressionLength];
         int itemOfProgress = startNum;
         for (int i = 0; i < array.length; i++) {

@@ -5,25 +5,30 @@ import hexlet.code.Utils;
 
 public class Prime {
 
+    private final static String HELLO_MESSAGE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
     public static void play() {
-        Engine.printMessage("Answer 'yes' if given number is prime."
-                + " Otherwise answer 'no'.");
-        while (true) {
+
+        String[] results = new String[Engine.NUMBER_CORRECT_ANSWER_FOR_SUCCESS];
+        String[] expressions = new String[Engine.NUMBER_CORRECT_ANSWER_FOR_SUCCESS];
+
+        for (int i = 0; i < results.length; i++) {
             int simplyNum = Utils.randomIntWithMin();
-            String result = isSimple(simplyNum) ? "yes" : "no";
-            if (Engine.playCycle(String.valueOf(simplyNum), result)) {
-                return;
-            }
+            results[i] = isSimple(simplyNum) ? "yes" : "no";
+            expressions[i] = String.valueOf(simplyNum);
         }
+
+        Engine.playCycle(HELLO_MESSAGE, expressions, results);
+
     }
 
     private static boolean isSimple(int simplyNum) {
-        int driver = 2;
-        while (driver < simplyNum) {
-            if (simplyNum % driver == 0) {
+        int divisor = 2;
+        while (divisor < Math.abs(simplyNum)) {
+            if (simplyNum % divisor == 0) {
                 return false;
             }
-            driver += 1;
+            divisor += 1;
         }
         return true;
     }
