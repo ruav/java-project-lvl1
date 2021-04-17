@@ -13,10 +13,10 @@ public class Engine {
         for (int i = 0; i < NUMBER_CORRECT_ANSWER_FOR_SUCCESS; i++) {
             askQuestion(expression[i]);
             getAnswer();
-            if (correctOrNot(results[i], yourAnswer)) {
-                printMessage("Congratulations, " + Cli.getName() + "!");
+            if (!correctOrNot(results[i], yourAnswer)) {
                 break;
             }
+            printMessage("Congratulations, " + Cli.getName() + "!");
         }
 
     }
