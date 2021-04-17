@@ -5,7 +5,7 @@ import hexlet.code.Utils;
 
 public class Prime {
 
-    private final static String HELLO_MESSAGE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final String HELLO_MESSAGE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     public static void play() {
 

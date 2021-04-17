@@ -5,7 +5,7 @@ import hexlet.code.Utils;
 
 public class GCD {
 
-    private final static String HELLO_MESSAGE = "Find the greatest common divisor of given numbers.";
+    private static final String HELLO_MESSAGE = "Find the greatest common divisor of given numbers.";
 
     public static void play() {
 

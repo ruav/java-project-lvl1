@@ -5,7 +5,7 @@ import hexlet.code.Utils;
 
 public class Progression {
 
-    private final static String HELLO_MESSAGE = "What number is missing in the progression?";
+    private static final String HELLO_MESSAGE = "What number is missing in the progression?";
 
     public static void play() {
 

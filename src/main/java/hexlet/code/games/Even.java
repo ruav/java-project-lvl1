@@ -5,7 +5,7 @@ import hexlet.code.Utils;
 
 public class Even {
 
-    private final static String HELLO_MESSAGE = "Answer 'yes' if number even otherwise answer 'no'";
+    private static final String HELLO_MESSAGE = "Answer 'yes' if number even otherwise answer 'no'";
 
     public static void play() {
 

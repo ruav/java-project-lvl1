@@ -5,7 +5,7 @@ import hexlet.code.Utils;
 
 public class Calc {
 
-    private final static String HELLO_MESSAGE = "What is the result of the expression?";
+    private static final String HELLO_MESSAGE = "What is the result of the expression?";
 
     public static void play() {
         String[] results = new String[Engine.NUMBER_CORRECT_ANSWER_FOR_SUCCESS];
@@ -32,8 +32,8 @@ public class Calc {
 
         private final char operationSign;
 
-        Operation(char operationSign) {
-            this.operationSign = operationSign;
+        Operation(char operationSignInit) {
+            this.operationSign = operationSignInit;
         }
 
         public char getOperationSign() {
